@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": 1
+  },
+
+  "globals": {
+    "jQuery": 1,
+    "angular": 1
+  },
+
+  "rules": {
+    "quotes": [2, "single"],
+    "eqeqeq": 0,
+    "strict": 0,
+    "no-console": 0,
+    "no-mixed-spaces-and-tabs": 0
+  }
+}

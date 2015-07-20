@@ -1,0 +1,60 @@
+$icon-font-path: '/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/';
+$fa-font-path: '/bower_components/font-awesome/fonts';
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    background: #ccc;
+    color: #000;
+    margin: .2em 0;
+    padding: .2em 0;
+}
+
+// Map fluid styles
+.map_container{
+  padding-bottom: 56.25%; // Ratio 16:9 ( 100%/16*9 = 56.25% )
+  position: relative;
+  width: 100%;
+}
+
+.map_container .map_canvas{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+// Variables
+
+// Fonts
+$bodyCopy: "Open Sans", sans-serif;
+$cursive : "Playball", cursive;
+
+// Colors
+$navy: rgba(33,48,71,1);
+$gold: rgba(210,171,94,1);
+$green: rgba(88,120,70,1);
+$white: rgba(255, 255, 255, 1);
+
+@mixin bk-white($alpha) {
+  background-color: rgba(255, 255, 255, $alpha);
+}
+
+$dark-grey: #666;
+
+// Component styles are injected through grunt
+// injector
+@import 'wedding/about/about.scss';
+@import 'wedding/registries/registries.scss';
+@import 'wedding/travel/travel.scss';
+@import 'wedding/wedding.scss';
+@import 'modal/modal.scss';
+// endinjector

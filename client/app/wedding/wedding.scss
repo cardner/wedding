@@ -1,0 +1,331 @@
+///******Positioning************/
+body {
+  overflow-x: hidden;
+}
+
+.no-float {
+  float: none;
+}
+
+.float-r {
+  float: right;
+}
+
+.float-l {
+  float: left;
+}
+
+.block {
+  display: block;
+}
+
+//******Font Styling***********/
+.cursive {
+  font-family: $cursive;
+}
+
+body {
+  font-family: $bodyCopy;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3 {
+  border-bottom: 1px solid $navy;
+  font-weight: 500;
+}
+
+.font-center {
+  text-align: center;
+}
+
+.demi {
+  font-weight: 700;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.f-size-large {
+  font-size: 4vw;
+}
+
+//******Colors***************/
+body {
+  color: $navy;
+}
+
+.navy {
+  color: $navy;
+}
+
+.gold {
+  color: $gold;
+}
+
+.green {
+  color: $green;
+}
+
+.green-bkg {
+  background-color: $green;
+}
+
+.white {
+  color: $white;
+}
+
+//******Padding*************/
+.no-pad {
+  padding: 0;
+}
+
+//******Margin***************/
+.no-marg {
+  margin: 0;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.m-top-2 {
+  margin-top: 2%;
+}
+
+.m-top-5 {
+  margin-top: 5%;
+}
+
+.m-top-10 {
+  margin-top: 10%;
+}
+
+.m-top-20 {
+  margin-top: 20%;
+}
+
+.m-top-30 {
+  margin-top: 30%;
+}
+
+.m-left-10 {
+  margin-left: 10%;
+}
+
+.m-left-10vw {
+  margin-left: 10vw;
+}
+
+//*******Structure Styles*******/
+.no-bull, .no-bull li {
+  list-style: none;
+}
+
+//*******Navigation**********/
+.navbar-header {
+  color: $navy;
+}
+
+
+.navbar-default .navbar-brand {
+  color: $navy;
+  font-weight: bold;
+  height: auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+#mainMenu {
+  background: transparent;
+  border: 0;
+  font-weight: 700;
+  width: 100%;
+
+  #navbar-main {
+  // margin: 4% 0 0 23%;
+    background-color: rgba(255, 255, 255, .8);
+    border-bottom: 1px solid #e7e7e7;
+    position: fixed;
+    right: 0;
+
+    li {
+
+      a {
+      color: $navy;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      }
+
+    }
+
+    .active {
+      a {
+        background: none;
+        color: $gold;
+        text-decoration: underline;
+      }
+
+  }
+
+}
+
+}
+
+nav {
+  display: block;
+  max-height: 150px;
+  min-height: 90px;
+}
+
+
+
+//**********Header**********/
+.jumbotron {
+  background-color: #fff;
+
+  h2, h4 {
+    font-size: 3.5vw;
+    font-weight: 700;
+    line-height: 1em;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 900;
+    // color: $green;
+    // font-family: $cursive;
+  }
+
+  h3 {
+    border-bottom: 0;
+    color: $gold;
+    font-size: 2vw;
+    line-height: 1.7em;
+    margin-top: 0;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 900;
+  }
+
+  .container {
+    overflow-y: hidden;
+    width: 100%;
+
+    img {
+      float: right;
+      height: auto;
+      transform: rotate(25deg);
+      width: 120%;
+    }
+
+  }
+
+}
+
+//**********Secondary Nav***/
+.bkg-img {
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.secondary-nav {
+  height: auto;
+  min-height: 45px;
+  position: relative;
+  width: 100%;
+  clear: both;
+  float: none;
+  margin: 15px;
+
+  button {
+    height:40px;
+
+    span {
+      font-weight: 700;
+      font-size: 2.5vw;
+      line-height: .2em;
+    }
+
+    &:nth-child(1) {
+      margin:0 9% 0 0;
+    }
+
+  }
+
+}
+
+#directions {
+  overflow: hidden;
+  position: relative;
+
+  h5 {
+    font-size: 5.5vw;
+  }
+
+  blockquote {
+    position: relative;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.75vw;
+    line-height: 1.2em;
+    border-color: $gold;
+    border-width: 2px;
+    color: $white;
+  }
+
+  p{
+    font-size: 2vw;
+    text-align: center;
+    color: $white;
+  }
+}
+
+//**********RSVP**********/
+.visuallyHidden, .honeyPot {
+  display: none;
+  height: 0;
+  width: 0;
+}
+#rsvp {
+  background-color: transparent;
+}
+
+//****** Overrides *********/
+.input-group-addon {
+  top: 0;
+}
+
+
+//******* Media Queries *****/
+@media (max-width: 765px) {
+  .xs-absolute {
+    position: absolute;
+  }
+  .xs-bkg-white {
+    @include bk-white(0.7);
+  }
+  .xs-centered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .xs-pad-5 {
+    padding: 5%;
+  }
+}

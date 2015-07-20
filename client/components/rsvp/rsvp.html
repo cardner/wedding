@@ -1,0 +1,107 @@
+<div class="col-xs-12" id="rsvp">
+  <h3 class="green cursive f-size-large">RSVP</h3>
+  <p id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></p>
+  <p ng-show="progress.active()">Sending&hellip;</p>
+<form class="form-horizontal col-sm-10 col-xs-12" ng-controller="RsvpCtrl" name="rsvpForm" novalidate role="form">
+  <div class="form-group">
+    <span class="label label-danger error" ng-show="submitted && rsvpForm.name.$error.required">please enter:</span>
+    <label for="inputName" class="col-sm-4 col-xs-12 control-label">Name</label>
+    <div class="col-sm-8 col-xs-12">
+      <input type="text" class="form-control" id="inputName" placeholder="First and Last name" list="names" required autocomplete="off" name="name" ng-model="name">
+      <datalist name="names" id="names">
+        <option value="Len Cardneau" />
+        <option value="Lorel Gardner" />
+      </datalist>
+    </div>
+  </div>
+  <div class="form-group">
+    <span class="label label-danger error" ng-show="submitted && rsvpForm.email.$error.required">please enter:</span>
+    <span class="label label-danger" ng-show="submitted && rsvpForm.$error.email">please enter a valid email address.</span>
+    <label for="inputEmail" class="col-sm-4 col-xs-12 control-label">Email</label>
+    <div class="col-sm-8 col-xs-12">
+      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" required name="email" ng-model="email" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <span class="label label-danger error" ng-show="submitted && rsvpForm.attending.$error.required">please select:</span>
+    <label for="inputAttend" class="col-sm-4 col-xs-12 control-label">Are you able to attend?</label>
+    <div class="radio col-xs-12 col-sm-5">
+      <label>
+        <input type="radio" name="attending" ng-model="attending" id="attendingYes" value="Yes, I'll be there" required>
+        Yes, I'll be there.
+      </label>
+    </div>
+    <div class="radio col-xs-12 col-sm-5">
+      <label>
+        <input type="radio" name="attending" ng-model="attending" id="attendingNo" value="No, I can't make it" required>
+        No, I can't make it.
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <span class="label label-danger error" ng-show="submitted && rsvpForm.partyNum.$error.required">please enter:</span>
+    <label for="inputParty" class="col-sm-4 col-xs-12 control-label">How many in your party?</label>
+    <div class="radio col-xs-12 col-sm-3">
+      <label class="radio col-xs-6 col-sm-3">
+        <input type="radio" ng-model="partyNum" name="partyNum" id="partyNum1" value="1" required> 1
+      </label>
+      <label class="radio col-xs-6 col-sm-3">
+        <input type="radio" ng-model="partyNum" name="partyNum" id="partyNum2" value="2" required> 2
+      </label>
+    </div>
+  </div>
+  <div class="form-group animate-show" ng-show="partyNum == 2">
+    <label for="inputGuest" class="col-sm-4 col-xs-12 control-label">Guests name?</label>
+    <div class="col-sm-8 col-xs-12">
+      <input type="text" class="form-control" name="guestname" ng-model="guestname" id="guestname" placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputDietary" class="col-sm-4 col-xs-12 control-label">Food</label>
+    <div class="checkbox dietary col-sm-8 col-xs-12">
+      <label>
+        <input type="checkbox" value="" name="dietaryRestrictions" ng-model="ModelData.dietaryRestrictions">
+        I/we have dietary restrictions!
+      </label>
+    </div>
+  </div>
+<div class="form-group" ng-show="ModelData.dietaryRestrictions">
+  <label for="inputDietary" class="col-sm-4 col-xs-12 control-label">What restrictions?</label>
+  <div class="col-sm-8 col-xs-12">
+    <input type="text" class="form-control" name="dietary" id="dietary" placeholder="" ng-model="dietary">
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputSong" class="col-sm-4 col-xs-12 control-label">What songs would get you dancing?</label>
+  <ul class="col-sm-8 col-xs-12">
+    <li class="input-group m-top-2 col-xs-12" data-ng-repeat="song in songs">
+      <input type="text" ng-model="song.name" name="partySongs" class="form-control song" id="inputSong" placeholder="Artist - Title" ><span ng-click="removeSong()" class="glyphicon glyphicon-remove input-group-addon font-center" ng-show="$last"></span>
+    </li>
+  </ul>
+  <div class="col-sm-8 col-xs-12 col-sm-offset-4">
+    <a class="btn btn-default" ng-click="addNewSong(song)">Suggest Another Track</a>
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputHotel" class="col-sm-4 col-xs-12 control-label">Where will you be staying?</label>
+  <div class="col-sm-8 col-xs-12">
+    <input type="text" class="form-control" name="hotel" id="inputHotel" placeholder="" describedby="inputSuccessHotel" ng-model="hotel">
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputNote" class="col-sm-4 col-xs-12 control-label">Would you like to include a note with your RSVP?</label>
+  <div class="col-sm-8 col-xs-12">
+    <textarea class="form-control" id="note" name="note" rows="3" ng-model="note"></textarea>
+  </div>
+</div>
+<input type="text" name="honeypot" class="honeyPot visuallyhidden" value="" max="0">
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8 col-xs-12">
+      <button class="btn btn-default bold col-sm-7 col-xs-12 green-bkg white" ng-disabled="progress.active()" ng-click="rsvp(rsvpForm)" name="submit" id="submit">RSVP</button>
+      <button class="btn btn-default col-sm-4 col-xs-12 col-sm-offset-1" type="reset" name="reset">reset</button>
+    </div>
+  </div>
+</form>
+</div>

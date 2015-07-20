@@ -1,0 +1,49 @@
+<nav ng-include="'components/navbar/navbar.html'"></nav>
+<div class="jumbotron no-pad" ng-controller="ScrollController">
+  <div class="container no-pad no-marg">
+    <!-- <img src="assets/images/wedding-homepage.jpg" class="img-responsive" alt="photo of cory and ryan loving each other deeply" /> -->
+    <div class="col-sm-6 no-pad col-xs-12 xs-absolute">
+      <img src="assets/images/flowers.jpg" class="" alt="photo of cory and ryan loving each other deeply" />
+    </div>
+    <div class="col-sm-6 col-xs-11 xs-centered xs-bkg-white xs-pad-5">
+      <h2 class="font-center m-top-30">With great joy, we</h2>
+      <h3 class="bold font-center">&ndash; Cory Williamson <span class="cursive">&amp;</span> Ryan Cardneau &ndash;</h3>
+      <h4 class="font-center">annouce our wedding</h4>
+      <h5 class="col-xs-12 col-sm-6 centered no-float block bold no-marg no-pad m-top-10 font-center">Ceremony <span class="cursive">&amp;</span> Afterparty</h5>
+      <ul class="centered block no-float col-xs-12 col-sm-6 no-pad m-top-2 font-center no-bull">
+        <li>January 17, 2016 @ 4:15PM</li>
+        <li>Vinology - Lower Level</li>
+        <li><address>110 S Main St, Ann Arbor, MI 48104</address></li>
+      </ul>
+      <a class="btn btn-default col-xs-6 no-float block centered m-top-10" ng-click="gotoDirections()">Directions <span class="cursive">&amp;</span> RSVP</a>
+    </div>
+  </div>
+</div>
+<div class="row no-marg" id="directions">
+  <img ng-src="assets/images/bkg-flower2.jpg" class="bkg-img" />
+  <div class="col-sm-6 col-xs-12">
+    <h5 class="cursive white">Ceremony</h5>
+    <blockquote>
+      Come join us January 17th starting @ 4:15PM to celebrate the union of Cory <span class="cursive">&amp;</span> Ryan.
+    </blockquote>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <h5 class="cursive white">Reception</h5>
+    <blockquote>
+      Reception to follow after a short ceremony hosted in Vinology's lovely Bubble Room.
+    </blockquote>
+  </div>
+  <div class="col-xs-12">
+    <p>*Drinks and heavy horderves to be provided throughout the night.</p>
+  </div>
+  <nav class="secondary-nav">
+    <button class="btn btn-default col-xs-12 col-sm-5" title="rsvp our wedding"  ng-click="rsvp = ! rsvp"><span class="glyphicon glyphicon-send"></span><span class="hidden-xs nav"> RSVP</span></button>
+    <button class="btn btn-default col-xs-12 col-sm-5" title="directions to the wedding" ng-click="map = ! map"><span class="glyphicon glyphicon-map-marker"></span><span class="hidden-xs navy"> Directions</span></button>
+  </nav>
+  <div class="map_container" ng-show="map">
+    <h3 class="green cursive">Directions</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.8823363356123!2d-83.748958!3d42.28103500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cae3da4e097d3%3A0x93101938b16068ef!2sVinology!5e0!3m2!1sen!2sus!4v1431272431251" width="100%" height="100%" frameborder="0" style="border:0" class="map_canvas"></iframe>
+  </div>
+  <aside ng-include="'components/rsvp/rsvp.html'" ng-show="rsvp"></aside>
+</div>
+<footer ng-include="'components/footer/footer.html'"></footer>
