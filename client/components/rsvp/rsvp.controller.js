@@ -37,10 +37,11 @@ var app = angular.module('weddingApp');
       };
 
     $http({
-        url: '/api/rsvps',
+        url: 'https://docs.google.com/forms/d/18uoEQT-57rPAbvvypa02MDqMsooTE7o4eL0rXGS76m4/formResponse',
         method: 'POST',
         data: contactInfo,
-        paramSerializer: '$httpParamSerializerJQLike'
+        dataType: 'xml'
+        //paramSerializer: '$httpParamSerializerJQLike'
       })
       .success(function(data, status) {
         if (status === 201) {
