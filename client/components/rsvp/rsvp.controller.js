@@ -57,7 +57,7 @@ var app = angular.module('weddingApp');
           $scope.messages = 'We have successfully recieved your rsvp, and we are excited to have you share this day with us.';
           $scope.submitted = false;
         } else {
-          $scope.messages = 'Oops, i received your request, but it appears something may have gone wrong.';
+          $scope.messages = 'Oops, i received your request, but it appears the monkies have miss-filed it.';
           $log.error(data);
           $log.error(status);
         }
