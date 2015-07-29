@@ -19,16 +19,16 @@
     </div>
   </div>
 </div>
-<div class="row no-marg" id="directions">
-  <img ng-src="assets/images/bkg-flower2.jpg" class="bkg-img" />
+<div class="row no-marg reception">
+  <hr />
   <div class="col-sm-6 col-xs-12">
-    <h5 class="cursive white">Ceremony</h5>
+    <h5 class="cursive gold">Ceremony</h5>
     <blockquote>
       Come join us January 17th starting @ 4:15PM to celebrate the union of Cory <span class="cursive">&amp;</span> Ryan.
     </blockquote>
   </div>
   <div class="col-sm-6 col-xs-12">
-    <h5 class="cursive white">Reception</h5>
+    <h5 class="cursive gold">Reception</h5>
     <blockquote>
       Reception to follow after a short ceremony hosted in Vinology's lovely Bubble Room.
     </blockquote>
@@ -36,14 +36,17 @@
   <div class="col-xs-12">
     <p>*Drinks and heavy horderves to be provided throughout the night.</p>
   </div>
+</div>
+<hr>
+<div id="directions" class="row">
   <nav class="secondary-nav">
-    <button class="btn btn-default col-xs-12 col-sm-5" title="rsvp our wedding"  ng-click="rsvp = ! rsvp"><span class="glyphicon glyphicon-send"></span><span class="hidden-xs nav"> RSVP</span></button>
-    <button class="btn btn-default col-xs-12 col-sm-5" title="directions to the wedding" ng-click="map = ! map"><span class="glyphicon glyphicon-map-marker"></span><span class="hidden-xs navy"> Directions</span></button>
+    <button class="btn btn-default col-xs-12 col-sm-4 col-sm-offset-1" ng-class="{'active':rsvp}" title="rsvp our wedding"  ng-click="[rsvp = ! rsvp]"><span class="glyphicon glyphicon-send"></span><span class="hidden-xs navy"> RSVP</span></button>
+    <button class="btn btn-default col-xs-12 col-sm-4 col-sm-offset-2" ng-class="{'active':map}" title="directions to the wedding" ng-click="[map = ! map]"><span class="glyphicon glyphicon-map-marker"></span><span class="hidden-xs navy"> Directions</span></button>
   </nav>
-  <div class="map_container" ng-show="map">
-    <h3 class="green cursive">Directions</h3>
+  <div class="map_container no-marg" ng-show="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.8823363356123!2d-83.748958!3d42.28103500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cae3da4e097d3%3A0x93101938b16068ef!2sVinology!5e0!3m2!1sen!2sus!4v1431272431251" width="100%" height="100%" frameborder="0" style="border:0" class="map_canvas"></iframe>
   </div>
   <aside ng-include="'components/rsvp/rsvp.html'" ng-show="rsvp"></aside>
 </div>
+<img src="../../assets/images/homepage-footer-bkg.png" alt="ryan loving cory" />
 <footer ng-include="'components/footer/footer.html'"></footer>

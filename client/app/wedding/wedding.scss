@@ -19,6 +19,10 @@ body {
   display: block;
 }
 
+.clear {
+  clear: both;
+}
+
 //******Font Styling***********/
 .cursive {
   font-family: $cursive;
@@ -122,6 +126,10 @@ body {
 
 .m-left-10vw {
   margin-left: 10vw;
+}
+
+.m-bottom-10 {
+  margin-bottom: 10%;
 }
 
 //*******Structure Styles*******/
@@ -251,6 +259,7 @@ nav {
   clear: both;
   float: none;
   margin: 15px;
+  margin-bottom: 30px;
 
   button {
     height:40px;
@@ -258,11 +267,7 @@ nav {
     span {
       font-weight: 700;
       font-size: 2.5vw;
-      line-height: .2em;
-    }
-
-    &:nth-child(1) {
-      margin:0 9% 0 0;
+      line-height: 1em;
     }
 
   }
@@ -272,29 +277,26 @@ nav {
 #directions {
   overflow: hidden;
   position: relative;
+}
 
+.reception {
   h5 {
     font-size: 5.5vw;
   }
 
   blockquote {
     position: relative;
-    text-align: left;
-    font-weight: 700;
     font-size: 1.75vw;
     line-height: 1.2em;
-    border-color: $gold;
-    border-width: 2px;
-    color: $white;
+    border-width: 0;
+    padding-left: 0;
+    margin-bottom: 10px;
   }
 
   p{
-    font-size: 2vw;
-    text-align: center;
-    color: $white;
+    font-size: 1.75vw;
   }
 }
-
 //**********RSVP**********/
 .visuallyHidden, .honeyPot {
   display: none;

@@ -25,26 +25,36 @@ var app = angular.module('weddingApp');
 
       // Default values for the request.
       var contactInfo = {
-          'name': $scope.name,
-          'email': $scope.email,
-          'attending': $scope.attending,
-          'numberAttending': $scope.partyNum,
-          'guestName': $scope.guestname,
-          'dietaryRestrictions': $scope.dietary,
-          'songs': $scope.songs,
-          'hotel': $scope.hotel,
-          'note': $scope.note
+          'entry.1339770440': $scope.name,
+          'entry.1724497109': $scope.email,
+          'entry.962079817': $scope.attending,
+          'entry.1713062384': $scope.partyNum,
+          'entry.1861085385': $scope.guestname,
+          'entry.708928610': $scope.dietary,
+          'entry.2067827130': $scope.songs,
+          'entry.971098826': $scope.hotel,
+          'entry.245907308': $scope.note,
+          'submit': 'Submit'
       };
 
     $http({
-        url: 'https://docs.google.com/forms/d/18uoEQT-57rPAbvvypa02MDqMsooTE7o4eL0rXGS76m4/formResponse',
+        //url: 'https://script.google.com/macros/s/AKfycbwkBSFdTMdJ9n-8RQWVFH25Pq0Zre58i2hFG1jzqXAwmzajrks/exec?prefix=json',
+        // url: 'https://docs.google.com/forms/d/18uoEQT-57rPAbvvypa02MDqMsooTE7o4eL0rXGS76m4/formResponse?entry.1339770440=' + $scope.name + '&entry.1724497109=' + $scope.email + '&entry.962079817='+ $scope.attending + '&entry.1713062384='+ $scope.partyNum + '&entry.1861085385=' + $scope.guestname + '&entry.708928610=' + $scope.dietary + '&entry.2067827130=' + $scope.songs + '&entry.971098826=' + $scope.hotel + '&entry.245907308=' + $scope.note + '$submit=Submit',
+        url: 'https://docs.google.com/a/williamson-cardneau.com/forms/d/18uoEQT-57rPAbvvypa02MDqMsooTE7o4eL0rXGS76m4/formResponse?ifq',
         method: 'POST',
         data: contactInfo,
-        dataType: 'xml'
-        //paramSerializer: '$httpParamSerializerJQLike'
+        dataType: 'xml',
+        //paramSerializer: '$httpParamSerializerJQLike',
+        withCredentials: true,
+        headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST, GET',
+                    'Access-Control-Allow-Headers': 'status'
+        }
       })
-      .success(function(data, status) {
-        if (status === 201) {
+      .success(function(data, status, prefix) {
+        if (status === 201 || status === 200 || status === 0) {
           $scope.name = null;
           $scope.email = null;
           $scope.attending = null;
@@ -58,14 +68,14 @@ var app = angular.module('weddingApp');
           $scope.submitted = false;
         } else {
           $scope.messages = 'Oops, i received your request, but it appears the monkies have miss-filed it.';
-          $log.error(data);
-          $log.error(status);
+          // $log.error(prefix);
+          // $log.error(status);
         }
       })
-      .error(function(data) {
+      .error(function(data, prefix) {
         $scope.progress = data;
         $scope.messages = 'the internet tubes are clogged, try again later';
-        $log.error(data);
+        //  $log.error(prefix);
       })
       .finally(function() {
         // Hide status messages after three seconds.

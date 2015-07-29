@@ -1,5 +1,4 @@
 <div class="col-xs-12" id="rsvp">
-  <h3 class="green cursive f-size-large">RSVP</h3>
   <p id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></p>
   <p ng-show="progress.active()">Sending&hellip;</p>
 <form class="form-horizontal col-sm-10 col-xs-12" ng-controller="RsvpCtrl" name="rsvpForm" novalidate role="form">
@@ -25,13 +24,13 @@
   <div class="form-group">
     <span class="label label-danger error" ng-show="submitted && rsvpForm.attending.$error.required">please select:</span>
     <label for="inputAttend" class="col-sm-4 col-xs-12 control-label">Are you able to attend?</label>
-    <div class="radio col-xs-12 col-sm-5">
+    <div class="radio col-xs-12 col-sm-4">
       <label>
         <input type="radio" name="attending" ng-model="attending" id="attendingYes" value="Yes, I'll be there" required>
         Yes, I'll be there.
       </label>
     </div>
-    <div class="radio col-xs-12 col-sm-5">
+    <div class="radio col-xs-12 col-sm-4">
       <label>
         <input type="radio" name="attending" ng-model="attending" id="attendingNo" value="No, I can't make it" required>
         No, I can't make it.

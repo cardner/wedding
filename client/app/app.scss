@@ -50,6 +50,9 @@ $white: rgba(255, 255, 255, 1);
 
 $dark-grey: #666;
 
+// Default element styling
+a {color: $gold;}
+
 // Component styles are injected through grunt
 // injector
 @import 'wedding/about/about.scss';
